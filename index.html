@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Wilson Vunge | Portfólio de Redes & Vendas TI</title>
+    <!-- Font Awesome 6 (ícones gratuitos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Poppins e Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, #1e3c72, #2b4c7c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e293b;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #2b4c7c;
+            border-bottom: 2px solid #2b4c7c;
+            padding-bottom: 4px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 60px 0 40px 0;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero-content h1 span {
+            color: #2b4c7c;
+            border-bottom: 3px solid #ffb347;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 28px;
+            max-width: 500px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: #1e3c72;
+            color: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .btn-primary:hover {
+            background: #0f2b4f;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1.5px solid #1e3c72;
+            color: #1e3c72;
+        }
+
+        .btn-outline:hover {
+            background: #eef2ff;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 0.8;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2);
+            border: 4px solid white;
+        }
+
+        /* Seções comuns */
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #ffb347;
+            border-radius: 4px;
+        }
+
+        .section-sub {
+            color: #475569;
+            margin-bottom: 48px;
+            margin-top: 20px;
+        }
+
+        /* Cards de habilidades */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 24px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 28px 20px;
+            border-radius: 24px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+            transition: 0.2s;
+            border: 1px solid #eef2ff;
+            text-align: center;
+        }
+
+        .skill-card i {
+            font-size: 2.4rem;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            color: #475569;
+            font-size: 0.9rem;
+        }
+
+        /* Grid de imagens (Portfólio / Projetos) */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eef2ff;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 28px -12px rgba(0,0,0,0.15);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            background: #cbd5e1;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .project-info p {
+            color: #475569;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .project-tag {
+            background: #e2e8f0;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            color: #1e293b;
+        }
+
+        /* Sobre + características */
+        .about-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1.5;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: #1e293b;
+        }
+
+        .traits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .trait {
+            background: #f1f5f9;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .trait i {
+            color: #ffb347;
+        }
+
+        .about-img {
+            flex: 0.8;
+            text-align: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 32px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        /* Contato + endereço */
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .contact-detail i {
+            font-size: 1.6rem;
+            color: #1e3c72;
+            width: 40px;
+        }
+
+        .contact-detail p {
+            font-weight: 500;
+        }
+
+        .address-map {
+            background: #eef2ff;
+            padding: 20px;
+            border-radius: 28px;
+            margin-top: 20px;
+        }
+
+        .map-placeholder {
+            background: #cbd5e1;
+            height: 160px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e293b;
+            font-weight: 500;
+            margin-top: 12px;
+            background-image: url('https://placehold.co/600x200/e2e8f0/1e293b?text=Viana+-+Ponte+Partida');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Rodapé */
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 32px 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .btn-group {
+                justify-content: center;
+            }
+            .section-title:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .section-title {
+                text-align: center;
+                display: block;
+            }
+            .section-sub {
+                text-align: center;
+            }
+            .about-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+            .traits {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">Wilson Vunge</div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#projetos">Portfólio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero / Home -->
+    <section id="home">
+        <div class="container hero">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-network-wired"></i> Redes & Vendas TI</div>
+                <h1>Olá, sou <span>Wilson Vunge</span><br> Futuro Engenheiro Profissional</h1>
+                <p>Estudante de Informática de Gestão | 13ª Classe | Apaixonado por redes de computadores e soluções em TI.</p>
+                <div class="btn-group">
+                    <a href="#projetos" class="btn btn-primary"><i class="fas fa-folder-open"></i> Ver Portfólio</a>
+                    <a href="#contato" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Contactar</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Imagem de perfil: substitua o src pela sua foto -->
+                <img src="PHOTO/Captura de ecrã 2026-04-22 132616.png" alt="Foto de perfil Wilson Vunge">
+                <p style="font-size: 0.7rem; margin-top: 12px; color:#475569;"><i class="fas fa-camera"></i> Adicione sua foto aqui</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre mim + características -->
+    <section id="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre mim</h2>
+            <div class="about-wrapper">
+                <div class="about-text">
+                    <p>Sou estudante do curso de Informática de Gestão, atualmente na 13ª classe. Tenho facilidade para aprender novas tecnologias e um forte desejo de me especializar em <strong>redes de computadores</strong> e <strong>vendas de materiais informáticos</strong>. Acredito que a combinação de conhecimento técnico e habilidades comerciais é essencial para me tornar um engenheiro profissional de sucesso.</p>
+                    <p>Vivo em Viana, Ponte Partida (entrada da Suave), e procuro oportunidades para crescer na área de TI, oferecendo pontualidade, escuta ativa e muita responsabilidade. Meu objetivo é construir soluções eficientes e ajudar empresas a otimizarem sua infraestrutura de rede.</p>
+                    <div class="traits">
+                        <span class="trait"><i class="fas fa-rocket"></i> Aprendizagem rápida</span>
+                        <span class="trait"><i class="fas fa-clock"></i> Pontualidade</span>
+                        <span class="trait"><i class="fas fa-head-side-listening"></i> Ouvinte ativo</span>
+                        <span class="trait"><i class="fas fa-check-circle"></i> Responsável</span>
+                        <span class="trait"><i class="fas fa-layer-group"></i> Organizado</span>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <!-- Imagem ilustrativa sobre redes / vendas (substitua) -->
+                    <img src="https://placehold.co/400x400/e2e8f0/1e3c72?text=Redes+e+Vendas" alt="Redes e Vendas">
+                    <p style="font-size:0.7rem; margin-top:8px;">Insira uma imagem relacionada</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades Técnicas e Pessoais -->
+    <section id="habilidades">
+        <div class="container">
+            <h2 class="section-title">Competências</h2>
+            <p class="section-sub">Áreas que domino e estou constantemente a aperfeiçoar</p>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-server"></i>
+                    <h3>Redes de Computadores</h3>
+                    <p>Fundamentos de TCP/IP, configuração de roteadores, switches, cabeamento estruturado e topologias. Em busca de certificações CCNA.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Vendas de Materiais Informáticos</h3>
+                    <p>Atendimento técnico-comercial, orçamentos, conhecimento de hardware e periféricos, negociação e pós-venda.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Gestão & Suporte TI</h3>
+                    <p>Diagnóstico de problemas, manutenção de equipamentos, suporte a usuários e documentação técnica.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Comunicação e Organização</h3>
+                    <p>Capacidade de trabalhar em equipa, gestão de tarefas, cumprimento de prazos e atitude proativa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- Contato e localização -->
+    <section id="contato">
+        <div class="container">
+            <h2 class="section-title">Contacto & Localização</h2>
+            <div class="contact-flex">
+                <div class="contact-info">
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <p>wilson.vunge@gmail.com</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+244 923 456 789</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fab fa-linkedin"></i>
+                        <p>linkedin.com/in/wilsonvunge</p>
+                    </div>
+                    <div class="address-map">
+                        <i class="fas fa-location-dot"></i> Referência: Próximo à fábrica da Suave, bairro Ponte Partida.
+                        <div class="map-placeholder">
+                            <!-- Mapa simbólico com texto -->
+                            <span><i class="fas fa-map-pin"></i> Viana, Ponte Partida</span>
+                        </div>
+                        <p style="font-size:0.7rem; margin-top:8px;">📍 Ponto de referência visual: entrada da Suave</p>
+                    </div>
+                </div>
+                <div style="flex:1; min-width: 240px;">
+                    <div style="background: white; border-radius: 28px; padding: 24px; box-shadow: 0 6px 14px rgba(0,0,0,0.02);">
+                        <h3 style="margin-bottom: 16px;"><i class="fas fa-paper-plane"></i> Disponível para estágio</h3>
+                        <p>Estou aberto a oportunidades para aprender na prática sobre redes de computadores, vendas técnicas e suporte de TI. Sou proativo e comprometido com o crescimento profissional. Entre em contacto!</p>
+                        <a href="#" style="display: inline-block; margin-top: 20px; background: #1e3c72; color: white; padding: 8px 24px; border-radius: 30px; text-decoration: none; font-weight: 500;"><i class="fas fa-comment-dots"></i> Enviar mensagem</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Wilson Vunge — Estudante de Informática de Gestão | Em busca de excelência em Redes & Vendas de Materiais Informáticos</p>
+        <p style="margin-top: 12px;"><i class="fas fa-code"></i> Portfólio com suporte para imagens — substitua os placeholders pelas suas fotos reais</p>
+    </div>
+</footer>
+</body>
+</html>
